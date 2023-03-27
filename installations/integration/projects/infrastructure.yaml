@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: infrastructure
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/thecooldrop/argocd-single-repo
+        revision: HEAD
+        directories:
+          - path: apps/*/envs/integration
+  template:
+    metadata:
+      name: '{{ path[1] }}'
+    spec:
+      source:
+        repoURL: https://github.com/thecooldrop/argocd-single-repo
+        targetRevision: HEAD
+        path: '{{path}}'
+      project: default
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

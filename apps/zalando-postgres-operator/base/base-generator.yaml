@@ -1,0 +1,9 @@
+apiVersion: builtin
+kind: HelmChartInflationGenerator
+metadata:
+  name: zalando-postgres-operator
+name: postgres-operator
+repo: https://opensource.zalando.com/postgres-operator/charts/postgres-operator
+releaseName: zalando-postgres-operator
+namespace: argocd
+IncludeCRDs: true
