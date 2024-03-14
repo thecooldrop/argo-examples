@@ -14,7 +14,7 @@ spec:
   project: default
   source:
     path: installations/production/projects
-    repoURL: https://github.com/thecooldrop/argocd-single-repo.git
+    repoURL: https://github.com/thecooldrop/argocd-examples.git
   syncPolicy:
     automated:
       allowEmpty: true

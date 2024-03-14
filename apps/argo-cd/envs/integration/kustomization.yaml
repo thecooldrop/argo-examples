@@ -3,3 +3,8 @@ kind: Kustomization
 namespace: argocd
 resources:
   - ../../base
+secretGenerator:
+  - behavior: merge
+    name: argocd-secret
+    literals:
+      - admin.password=$2a$10$JyfQRnwP8O7aQ01ZpeMO..gw.FQqYReUGWuDXorcHeWWLvG49DT7m

@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/thecooldrop/argocd-single-repo
+        repoURL: https://github.com/thecooldrop/argocd-examples
         revision: HEAD
         directories:
           - path: apps/*/envs/production
@@ -14,7 +14,7 @@ spec:
       name: '{{ path[1] }}'
     spec:
       source:
-        repoURL: https://github.com/thecooldrop/argocd-single-repo
+        repoURL: https://github.com/thecooldrop/argocd-examples
         targetRevision: HEAD
         path: '{{path}}'
       project: default
