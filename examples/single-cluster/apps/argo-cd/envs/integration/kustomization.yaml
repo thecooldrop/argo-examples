@@ -6,3 +6,8 @@ resources:
   - ingress.yaml
 patches:
   - path: patchClusterRoleBindings.yaml
+configMapGenerator:
+  - behavior: merge
+    name: argocd-cmd-params-cm
+    literals:
+      - server.insecure=true
