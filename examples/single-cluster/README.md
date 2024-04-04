@@ -13,4 +13,12 @@ And following teams:
 - Hammers
 - Weasles
 
-This means that in total we will be having 6 environments, namely one of each environment per team. We will assume that team Rockets will be the one managing the infrastrucuture and ArgoCD itself. 
+This means that in total we will be having 6 environments, namely one of each environment per team. We will assume that team Rockets will be the one managing the infrastrucuture and ArgoCD itself.
+
+Todo list:
+
+- Patch argocd-application-controller and argocd-server ClusterRoleBinding subject namespace from argocd to proper integration namespaceargocd-server
+- Ensure that each team can install their applications from their own repository
+- Ensure that each team can only install their applications into their own namespaces
+- Ensure that each team can only create resources into their namespaces
+- Ensure that teams can not create namespace resources

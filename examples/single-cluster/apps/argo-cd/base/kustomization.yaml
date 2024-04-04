@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.1/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.10.4/manifests/install.yaml
 labels:
   - pairs:
       app.kubernetes.io/instance: argo-cd
@@ -10,5 +10,9 @@ configMapGenerator:
     name: argocd-cm
     literals:
       - kustomize.buildOptions=--enable-helm --load-restrictor LoadRestrictionsNone
-patchesStrategicMerge:
-  - cluster-role-bindings-patch.yaml
+secretGenerator:
+  - behavior: merge
+    name: argocd-secret
+    literals:
+      # Default password is "nothinspecial"
+      - admin.password=$2a$10$nM/L53Eak.9b60D8DCsowucst5XbUkbM9MKDY.ReNEZsjdk0DK7B.
