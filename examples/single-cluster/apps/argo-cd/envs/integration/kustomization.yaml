@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: argocd-rocket-integration
 resources:
   - ../../base
+  - ingress.yaml
 patches:
   - path: patchClusterRoleBindings.yaml
