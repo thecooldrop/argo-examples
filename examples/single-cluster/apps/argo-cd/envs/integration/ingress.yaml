@@ -7,9 +7,9 @@ spec:
     - http:
         paths:
           - pathType: Prefix
-            path: '/'
+            path: '/integration'
             backend:
               service:
                 name: argocd-server
                 port:
-                  number: 443
+                  number: 80
