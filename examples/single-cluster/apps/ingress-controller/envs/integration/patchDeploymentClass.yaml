@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-ingress-controller
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
 spec:
   template:
     spec:
@@ -18,3 +19,4 @@ spec:
             - --watch-ingress-without-class=true
             - --enable-metrics=false
             - --publish-status-address=localhost
+          name: controller
