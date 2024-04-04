@@ -14,5 +14,5 @@ secretGenerator:
   - behavior: merge
     name: argocd-secret
     literals:
-      # Default password is "nothinspecial"
-      - admin.password=$2a$10$nM/L53Eak.9b60D8DCsowucst5XbUkbM9MKDY.ReNEZsjdk0DK7B.
+      # Default password is "admin"
+      - admin.password=$2a$10$yakx1OJBonkB9kzYl/oU7OzycxVRdNyKV1WheR0ukSUqQMXc2S2nS
