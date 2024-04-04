@@ -11,3 +11,4 @@ configMapGenerator:
     name: argocd-cmd-params-cm
     literals:
       - server.insecure=true
+      - rootpath=/integration
