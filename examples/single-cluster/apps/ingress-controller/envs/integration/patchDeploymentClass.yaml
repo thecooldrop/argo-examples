@@ -11,7 +11,7 @@ spec:
             - /nginx-ingress-controller
             - --election-id=ingress-nginx-leader
             - --controller-class=k8s.io/ingress-nginx
-            - --ingress-class=k8s.io/integration
+            - --ingress-class=integration
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
             - --validating-webhook=:8443
             - --validating-webhook-certificate=/usr/local/certificates/cert
