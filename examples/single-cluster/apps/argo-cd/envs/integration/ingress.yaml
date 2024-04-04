@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argo-integration-ingress
 spec:
-  ingressClassName: k8s.io/integration
+  ingressClassName: integration
   rules:
     - http:
         paths:
