@@ -4,8 +4,7 @@ metadata:
   name: argo-integration-ingress
 spec:
   rules:
-    - host: argo-integration
-      http:
+    - http:
         paths:
           - pathType: Prefix
             path: '/'
