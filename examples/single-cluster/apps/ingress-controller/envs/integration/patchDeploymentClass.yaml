@@ -10,7 +10,7 @@ spec:
         - args:
             - /nginx-ingress-controller
             - --election-id=ingress-nginx-leader
-            - --controller-class=k8s.io/ingress-nginx
+            - --controller-class=k8s.io/integration
             - --ingress-class=integration
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
             - --validating-webhook=:8443
