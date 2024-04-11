@@ -2,5 +2,5 @@ apiVersion: builtin
 kind: NamespaceTransformer
 metadata:
   name: setNamespaceName
-namespace: argocd-rocket-integration
+  namespace: argocd-rocket-production
 setRoleBindingSubjects: allServiceAccounts
