@@ -6,15 +6,15 @@ metadata:
   labels:
     app.kubernetes.io/name: root
   name: root
-  namespace: argocd
+  namespace: argocd-rocket-production
 spec:
   destination:
-    namespace: argocd
+    namespace: argocd-rocket-production
     server: https://kubernetes.default.svc
   project: default
   source:
     path: examples/single-cluster/installations/production/projects
-    repoURL: https://github.com/thecooldrop/argo-examples.git../../.gitignore
+    repoURL: https://github.com/thecooldrop/argo-examples.git
   syncPolicy:
     automated:
       allowEmpty: true

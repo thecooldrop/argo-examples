@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: argocd-rocket-integration
 resources:
   - ../../base
   - ingress.yaml
@@ -12,4 +11,7 @@ configMapGenerator:
     literals:
       - server.insecure=true
       - server.rootpath=/integration
-      - server.basehref=/integration/
+      - server.basehref=/integration
+transformers:
+  - namespaceTransformer.yaml
+  - nameSuffixTransformer.yaml

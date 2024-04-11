@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: PrefixSuffixTransformer
+metadata:
+  name: addIntegrationSuffixs
+suffix: -production
+fieldSpecs:
+  - path: metadata/name
+    group: rbac.authorization.k8s.io
+    apiVersion: v1
+    kind: ClusterRole
+  - path: metadata/name
+    group: rbac.authorization.k8s.io
+    apiVersion: v1
+    kind: ClusterRoleBinding

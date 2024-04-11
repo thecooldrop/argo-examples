@@ -5,22 +5,24 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/thecooldrop/argocd-examples.git
+        repoURL: https://github.com/thecooldrop/argo-examples.git
         revision: HEAD
         directories:
           - path: examples/single-cluster/apps/*/envs/production
   template:
     metadata:
-      name: '{{ path[1] }}'
+      name: '{{ path[3] }}'
     spec:
       source:
-        repoURL: https://github.com/thecooldrop/argocd-examples.git
+        repoURL: https://github.com/thecooldrop/argo-examples.git
         targetRevision: HEAD
         path: '{{path}}'
       project: default
       destination:
         server: https://kubernetes.default.svc
-        namespace: argocd
+        namespace: argocd-rocket-production
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
+      automated:
+        selfHeal: true

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argo-integration-ingress
+spec:
+  ingressClassName: production
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: '/production'
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
