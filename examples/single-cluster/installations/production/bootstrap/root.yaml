@@ -4,8 +4,8 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    app.kubernetes.io/name: root
-  name: root
+    app.kubernetes.io/name: root-production
+  name: root-production
   namespace: argocd-rocket-production
 spec:
   destination:

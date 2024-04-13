@@ -3,6 +3,9 @@ kind: Kustomization
 resources:
   - ../../base
   - ingress.yaml
+# labels:
+#   - pairs:
+#       app.kubernetes.io/instance: argo-cd-integration
 patches:
   - path: patchClusterRoleBindings.yaml
 configMapGenerator:
