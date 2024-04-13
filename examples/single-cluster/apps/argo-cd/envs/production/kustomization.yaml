@@ -5,9 +5,6 @@ resources:
   - ingress.yaml
 patches:
   - path: patchClusterRoleBindings.yaml
-labels:
-  - pairs:
-      app.kubernetes.io/instance: argo-cd-production
 configMapGenerator:
   - behavior: merge
     literals:
