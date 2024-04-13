@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: argocd-rocket-integration
   labels:
-    app.kubernetes.io/instance: bootstrap-resources
+    app.kubernetes.io/instance: bootstrap-resources-integration
