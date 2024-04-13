@@ -9,8 +9,8 @@ spec:
       containers:
         - args:
             - /nginx-ingress-controller
-            - --election-id=$ELECTION_ID
-            - --controller-class=$CONTROLLER_CLASS
+            - --election-id=$(ELECTION_ID)
+            - --controller-class=$(CONTROLLER_CLASS)
             - --ingress-class=$INGRESS_CLASS
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
             - --validating-webhook=:8443
