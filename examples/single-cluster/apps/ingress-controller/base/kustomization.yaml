@@ -3,4 +3,4 @@ resources:
   - https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
   - controllerArgsConfigMap.yaml
 patches:
-  - patchDeploymentClass.yaml
+  - path: patchDeploymentClass.yaml
