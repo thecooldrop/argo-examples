@@ -9,7 +9,7 @@ spec:
       containers:
         - args:
             - /nginx-ingress-controller
-            - --election-id=$(ELECTION_ID)
+            - --election-id=ingress-nginx-leader
             - --controller-class=$(CONTROLLER_CLASS)
             - --ingress-class=$INGRESS_CLASS
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
