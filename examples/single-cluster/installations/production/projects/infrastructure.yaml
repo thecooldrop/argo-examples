@@ -17,6 +17,10 @@ spec:
         repoURL: https://github.com/thecooldrop/argo-examples.git
         targetRevision: HEAD
         path: '{{path}}'
+        kustomize:
+          forceCommonLabels: true
+          commonLabels:
+            app.kubernetes.io/instance: '{{ path[3] }}-production'
       project: default
       destination:
         server: https://kubernetes.default.svc
