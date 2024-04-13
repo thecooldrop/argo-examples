@@ -12,7 +12,7 @@ spec:
             - --webhook-name=$(ARG_HOOK_NAME)
             - --namespace=$(POD_NAMESPACE)
             - --patch-mutating=false
-            - --secret-name=ingress-nginx-admission-patch
+            - --secret-name=ingress-nginx-admission
             - --patch-failure-policy=Fail
           name: patch
           envFrom:
