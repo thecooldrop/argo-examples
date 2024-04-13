@@ -5,7 +5,7 @@ resources:
   - ../../base
 configMapGenerator:
   - behavior: merge
-    name: nginx-controllerArgs
+    name: nginx-controller-args
     literals:
       - ELECTION_ID=ingress-nginx-leader-production
       - CONTROLLER_CLASS=k8s.io/ingress-nginx-production
