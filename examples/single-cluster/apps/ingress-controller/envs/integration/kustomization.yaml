@@ -7,7 +7,6 @@ configMapGenerator:
   - behavior: merge
     name: nginx-controller-args
     literals:
-      - ELECTION_ID=ingress-nginx-leader-integration
       - CONTROLLER_CLASS=k8s.io/ingress-nginx-integration
       - INGRESS_CLASS=nginx-integration
   - behavior: merge

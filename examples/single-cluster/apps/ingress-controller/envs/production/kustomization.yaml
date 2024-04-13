@@ -10,6 +10,10 @@ configMapGenerator:
       - ELECTION_ID=ingress-nginx-leader-production
       - CONTROLLER_CLASS=k8s.io/ingress-nginx-production
       - INGRESS_CLASS=nginx-production
+  - behavior: merge
+    name: nginx-patch-job-args
+    literals:
+      - ARG_HOOK_NAME=ingress-nginx-admission-integration
 transformers:
   - namespaceTransformer.yaml
   - nameSuffixTransformer.yaml
