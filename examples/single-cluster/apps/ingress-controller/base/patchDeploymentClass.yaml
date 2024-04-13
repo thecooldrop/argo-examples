@@ -9,9 +9,9 @@ spec:
       containers:
         - args:
             - /nginx-ingress-controller
-            - --election-id=ingress-nginx-leader-integration
-            - --controller-class=k8s.io/ingress-nginx-integration
-            - --ingress-class=nginx-integration
+            - --election-id=$ELECTION_ID
+            - --controller-class=$CONTROLLER_CLASS
+            - --ingress-class=$INGRESS_CLASS
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
             - --validating-webhook=:8443
             - --validating-webhook-certificate=/usr/local/certificates/cert
@@ -20,3 +20,6 @@ spec:
             - --enable-metrics=false
             - --publish-status-address=localhost
           name: controller
+          envFrom:
+            configMapRef:
+              name: controllerArgs
