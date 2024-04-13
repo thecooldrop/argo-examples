@@ -8,4 +8,4 @@ patches:
   - path: patchDeploymentClass.yaml
 transformers:
   - namespaceTransformer.yaml
-  - nmaeSuffixTransformer.yaml
+  - nameSuffixTransformer.yaml
