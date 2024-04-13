@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-controllerArgs
+  name: nginx-controller-args
 data:
   ELECTION_ID: ingress-nginx-leader
   CONTROLLER_CLASS: k8s.io/ingress-nginx

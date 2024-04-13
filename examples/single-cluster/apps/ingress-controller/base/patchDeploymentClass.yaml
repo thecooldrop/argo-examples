@@ -22,4 +22,4 @@ spec:
           name: controller
           envFrom:
             configMapRef:
-              name: controllerArgs
+              name: nginx-controller-args
