@@ -9,9 +9,9 @@ spec:
       containers:
         - args:
             - /nginx-ingress-controller
-            - --election-id=ingress-nginx-leader
-            - --controller-class=k8s.io/integration
-            - --ingress-class=integration
+            - --election-id=ingress-nginx-leader-integration
+            - --controller-class=k8s.io/ingress-nginx-integration
+            - --ingress-class=nginx-integration
             - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
             - --validating-webhook=:8443
             - --validating-webhook-certificate=/usr/local/certificates/cert

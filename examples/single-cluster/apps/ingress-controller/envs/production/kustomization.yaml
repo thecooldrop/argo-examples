@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: nginx-rocket-production
 resources:
   - ../../base
-  - ingressClass.yaml
 patches:
   - path: patchDeploymentClass.yaml
 transformers:

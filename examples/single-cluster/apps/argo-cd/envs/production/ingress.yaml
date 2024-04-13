@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argo-production-ingress
 spec:
-  ingressClassName: production
+  ingressClassName: nginx-production
   rules:
     - http:
         paths:

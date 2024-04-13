@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: argo-integration-ingress
 spec:
-  ingressClassName: integration
+  ingressClassName: nginx-integration
   rules:
     - http:
         paths:
