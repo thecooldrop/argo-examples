@@ -6,3 +6,6 @@ resources:
   - ingressClass.yaml
 patches:
   - path: patchDeploymentClass.yaml
+transformers:
+  - namespaceTransformer.yaml
+  - nameSuffixTransformer.yaml
