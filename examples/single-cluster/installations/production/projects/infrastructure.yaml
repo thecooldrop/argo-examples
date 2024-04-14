@@ -7,8 +7,8 @@ spec:
     - git:
         repoURL: https://github.com/thecooldrop/argo-examples.git
         revision: HEAD
-        directories:
-          - path: examples/single-cluster/apps/*/envs/production
+        files:
+          - path: examples/single-cluster/apps/*/envs/production/config.yaml
   template:
     metadata:
       name: '{{ path[3] }}-production'
