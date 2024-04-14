@@ -38,7 +38,7 @@ spec:
         helm:
           valueFiles:
           {{- range .valueFiles }}
-          - $values/{{ .path.path }}/{{ . }}
+          - $values/{{ $.path.path }}/{{ . }}
           {{- end }}
           releaseName: {{ .releaseName }}
         destination:
