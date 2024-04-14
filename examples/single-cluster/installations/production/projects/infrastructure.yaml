@@ -41,13 +41,12 @@ spec:
         helm:
           valueFiles:
           {{- range .valueFiles }}
-          - $values/{{ . }}
+          - $values/{{ .path.path }}/{{ . }}
           {{- end }}
           releaseName: {{ .releaseName }}
         destination:
           namespace: {{ .namespace }}
       - repoUrl: https://github.com/thecooldrop/argo-examples.git
-        path: {{ .path.path }}
         targetRevision: HEAD
         ref: values
     {{- end}}
