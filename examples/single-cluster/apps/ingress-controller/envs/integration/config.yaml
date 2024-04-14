@@ -5,5 +5,5 @@ namespace: nginx-rocket-integration
 version: 4.10.0
 releaseName: ingress
 valueFiles:
-  - '../../values.yaml'
+  - '../../base/values.yaml'
   - 'values.yaml'
