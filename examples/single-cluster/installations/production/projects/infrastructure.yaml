@@ -11,12 +11,12 @@ spec:
           - path: examples/single-cluster/apps/*/envs/production/config.yaml
   template:
     metadata:
-      name: '{{ path[3] }}-production'
+      name: '{{ index .path.segments 3 }}-production'
     spec:
       source:
         repoURL: https://github.com/thecooldrop/argo-examples.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{ .path.path }}'
       project: default
       destination:
         server: https://kubernetes.default.svc
@@ -32,7 +32,7 @@ spec:
       source:
         repoURL: https://github.com/thecooldrop/argo-examples.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{ .path.path }}'
     {{- else if (eq .type "helm") }}
       sources:
       - chart: {{ .chart }}
@@ -45,7 +45,7 @@ spec:
         destination:
           namespace: {{ .namespace }}
       - repoUrl: https://github.com/thecooldrop/argo-examples.git
-        path: {{ path }}
+        path: {{ .path.path }}
         targetRevision: HEAD
         ref: values
     {{- end}}

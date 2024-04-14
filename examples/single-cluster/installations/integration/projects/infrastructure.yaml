@@ -3,6 +3,7 @@ kind: ApplicationSet
 metadata:
   name: infrastructure
 spec:
+  goTemplate: true
   generators:
     - git:
         repoURL: https://github.com/thecooldrop/argo-examples.git
@@ -11,7 +12,7 @@ spec:
           - path: examples/single-cluster/apps/*/envs/integration/config.yaml
   template:
     metadata:
-      name: '{{ path[3] }}-integration'
+      name: '{{ index .path.segments 3 }}-integration'
     spec:
       project: default
       destination:
@@ -28,7 +29,7 @@ spec:
       source:
         repoURL: https://github.com/thecooldrop/argo-examples.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{ .path.path }}'
     {{- else if (eq .type "helm") }}
       sources:
       - chart: {{ .chart }}
@@ -41,7 +42,7 @@ spec:
         destination:
           namespace: {{ .namespace }}
       - repoUrl: https://github.com/thecooldrop/argo-examples.git
-        path: {{ path }}
+        path: {{ .path.path }}
         targetRevision: HEAD
         ref: values
     {{- end}}
