@@ -26,3 +26,23 @@ spec:
           - CreateNamespace=true
         automated:
           selfHeal: true
+  templatePatch: |
+    {{- if (eq .type "kustomize") }}
+      source:
+        repoURL: https://github.com/thecooldrop/argo-examples.git
+        targetRevision: HEAD
+        path: '{{path}}'
+    {{- else if (eq .type "helm") }}
+      sources:
+      - chart: {{ .chart }}
+        repoUrl: {{ .repo }}
+        targetRevision: {{ .version }}
+        valueFiles:
+        {{- range .valueFiles }}
+        - $values/{{ . }}
+        {{- end }}
+      - repoUrl: https://github.com/thecooldrop/argo-examples.git
+        path: {{ path }}
+        targetRevision: HEAD
+        ref: values
+    {{- end}}
