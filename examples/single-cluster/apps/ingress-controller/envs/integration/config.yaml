@@ -3,5 +3,5 @@ chart: ingress-nginx
 repo: https://kubernetes.github.io/ingress-nginx
 namespace: nginx-rocket-integration
 valueFiles:
-  - ../../values.yaml
-  - values.yaml
+  - '../../values.yaml'
+  - 'values.yaml'
