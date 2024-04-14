@@ -3,6 +3,7 @@ chart: ingress-nginx
 repo: https://kubernetes.github.io/ingress-nginx
 namespace: nginx-rocket-production
 version: 4.10.0
+releaseName: ingress
 valueFiles:
   - '../../values.yaml'
   - 'values.yaml'

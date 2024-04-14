@@ -38,10 +38,12 @@ spec:
       - chart: {{ .chart }}
         repoUrl: {{ .repo }}
         targetRevision: {{ .version }}
-        valueFiles:
-        {{- range .valueFiles }}
-        - $values/{{ . }}
-        {{- end }}
+        helm:
+          valueFiles:
+          {{- range .valueFiles }}
+          - $values/{{ . }}
+          {{- end }}
+          releaseName: {{ .releaseName }}
         destination:
           namespace: {{ .namespace }}
       - repoUrl: https://github.com/thecooldrop/argo-examples.git
