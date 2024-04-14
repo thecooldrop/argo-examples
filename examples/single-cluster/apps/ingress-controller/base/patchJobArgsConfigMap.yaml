@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-patch-job-args
-data:
-  ARG_HOOK_NAME: ingress-nginx-admission

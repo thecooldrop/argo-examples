@@ -1,8 +1,0 @@
-apiVersion: builtin
-kind: NamespaceTransformer
-metadata:
-  name: setNamespaceName
-  namespace: nginx-rocket-production
-setRoleBindingSubjects: allServiceAccounts
-fieldSpecs:
-  - path: metadata/namespace

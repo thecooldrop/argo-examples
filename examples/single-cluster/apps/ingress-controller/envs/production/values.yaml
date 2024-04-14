@@ -1,0 +1,7 @@
+namespaceOverride: nginx-rocket-production
+controller:
+  electionID: 'production'
+  ingressClassResource:
+    name: nginx-production
+    controllerValue: k8s.io/ingress-nginx-production
+  ingressClass: nginx-production

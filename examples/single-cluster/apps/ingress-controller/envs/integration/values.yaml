@@ -1,0 +1,7 @@
+namespaceOverride: nginx-rocket-integration
+controller:
+  electionID: 'integration'
+  ingressClassResource:
+    name: nginx-integration
+    controllerValue: k8s.io/ingress-nginx-integration
+  ingressClass: nginx-integration

@@ -23,6 +23,7 @@ spec:
         automated:
           selfHeal: true
   templatePatch: |
+    spec:
     {{- if (eq .type "kustomize") }}
       source:
         repoURL: https://github.com/thecooldrop/argo-examples.git
@@ -37,6 +38,8 @@ spec:
         {{- range .valueFiles }}
         - $values/{{ . }}
         {{- end }}
+        destination:
+          namespace: {{ .namespace }}
       - repoUrl: https://github.com/thecooldrop/argo-examples.git
         path: {{ path }}
         targetRevision: HEAD
