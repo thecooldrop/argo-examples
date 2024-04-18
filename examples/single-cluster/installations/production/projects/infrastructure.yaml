@@ -3,6 +3,7 @@ kind: ApplicationSet
 metadata:
   name: infrastructure
 spec:
+  goTemplate: true
   generators:
     - git:
         repoURL: https://github.com/thecooldrop/argo-examples.git
@@ -13,10 +14,6 @@ spec:
     metadata:
       name: '{{ index .path.segments 3 }}-production'
     spec:
-      source:
-        repoURL: https://github.com/thecooldrop/argo-examples.git
-        targetRevision: HEAD
-        path: '{{ .path.path }}'
       project: default
       destination:
         server: https://kubernetes.default.svc
