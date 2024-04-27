@@ -4,21 +4,23 @@ In this example we will be focusing on how to deploy and manage ArgoCD in single
 
 We assume that we have following environments:
 
-- Integration
-- Production
+-   Integration
+-   Production
 
 And following teams:
 
-- Rockets
-- Hammers
-- Weasles
+-   Rockets
+-   Hammers
+-   Weasles
 
 This means that in total we will be having 6 environments, namely one of each environment per team. We will assume that team Rockets will be the one managing the infrastrucuture and ArgoCD itself.
 
 Todo list:
 
-- Patch argocd-application-controller and argocd-server ClusterRoleBinding subject namespace from argocd to proper integration namespaceargocd-server
-- Ensure that each team can install their applications from their own repository
-- Ensure that each team can only install their applications into their own namespaces
-- Ensure that each team can only create resources into their namespaces
-- Ensure that teams can not create namespace resources
+-   Ensure that each team can install their applications from their own repository
+-   Ensure that each team can only install their applications into their own namespaces
+-   Ensure that each team can only create resources into their namespaces
+-   Ensure that teams can not create namespace resources
+-   MetalLB currently installed by integration AppSet, that does not seem cool
+-   Currently only one instance of MetalLB, also not cool
+-   Automation around finding out the docker IP also missing for LB and actually templating the resources out to match the users IP is missing
