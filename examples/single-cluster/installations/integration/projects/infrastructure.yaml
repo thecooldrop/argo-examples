@@ -1,49 +1,50 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: infrastructure
+    name: infrastructure
 spec:
-  goTemplate: true
-  generators:
-    - git:
-        repoURL: https://github.com/thecooldrop/argo-examples.git
-        revision: HEAD
-        files:
-          - path: examples/single-cluster/apps/*/envs/integration/config.yaml
-  template:
-    metadata:
-      name: '{{ index .path.segments 3 }}-integration'
-    spec:
-      project: default
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: argocd-rocket-integration
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
-        automated:
-          selfHeal: true
-  templatePatch: |
-    spec:
-    {{- if (eq .type "kustomize") }}
-      source:
-        repoURL: https://github.com/thecooldrop/argo-examples.git
-        targetRevision: HEAD
-        path: '{{ .path.path }}'
-    {{- else if (eq .type "helm") }}
-      sources:
-      - chart: {{ .chart }}
-        repoUrl: {{ .repo }}
-        targetRevision: {{ .version }}
-        helm:
-          valueFiles:
-          {{- range .valueFiles }}
-          - $values/{{ $.path.path }}/{{ . }}
-          {{- end }}
-          releaseName: {{ .releaseName }}
-      - repoUrl: https://github.com/thecooldrop/argo-examples.git
-        targetRevision: HEAD
-        ref: values
-      destination:
-        namespace: {{ .namespace }}
-    {{- end}}
+    goTemplate: true
+    generators:
+        - git:
+              repoURL: https://github.com/thecooldrop/argo-examples.git
+              revision: HEAD
+              files:
+                  - path: examples/single-cluster/apps/*/envs/integration/config.yaml
+                  - path: examples/single-cluster/apps/*/envs/cluster/config.yaml
+    template:
+        metadata:
+            name: '{{ index .path.segments 3 }}-integration'
+        spec:
+            project: default
+            destination:
+                server: https://kubernetes.default.svc
+                namespace: argocd-rocket-integration
+            syncPolicy:
+                syncOptions:
+                    - CreateNamespace=true
+                automated:
+                    selfHeal: true
+    templatePatch: |
+        spec:
+        {{- if (eq .type "kustomize") }}
+          source:
+            repoURL: https://github.com/thecooldrop/argo-examples.git
+            targetRevision: HEAD
+            path: '{{ .path.path }}'
+        {{- else if (eq .type "helm") }}
+          sources:
+          - chart: {{ .chart }}
+            repoUrl: {{ .repo }}
+            targetRevision: {{ .version }}
+            helm:
+              valueFiles:
+              {{- range .valueFiles }}
+              - $values/{{ $.path.path }}/{{ . }}
+              {{- end }}
+              releaseName: {{ .releaseName }}
+          - repoUrl: https://github.com/thecooldrop/argo-examples.git
+            targetRevision: HEAD
+            ref: values
+          destination:
+            namespace: {{ .namespace }}
+        {{- end}}
