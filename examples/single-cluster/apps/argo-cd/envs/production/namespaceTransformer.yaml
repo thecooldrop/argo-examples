@@ -1,3 +1,7 @@
+# By default ArgoCD Kustomization installs the ArgoCD components into namespace named argocd.
+# Further it configures all ClusterRoleBindings to apply to ServiceAccounts in namespace argocd.
+# Since we are installing into a different namespace, it is necessary to configure the namespace transformer to make necessary changes to ClusterRoleBindings coming from base kustomization.
+# This transformer ensures that namespace of all installed resources is changed to argocd-rocket-integration and that RoleBinding and ClusterRoleBinding subject namespace is also set to argocd-rocket-integration.
 apiVersion: builtin
 kind: NamespaceTransformer
 metadata:
